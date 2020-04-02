@@ -1,0 +1,30 @@
+{% for post in site.posts %}
+
+{{ post.title }}<br>
+
+{% endfor %}
+
+<br>
+
+{% for person in site.data.people %}
+  {{person.name}}, {{person.job}}<br>
+{% endfor %}
+
+<br>
+
+{% for file in site.static_files %}
+  {{ file.path }}
+{% endfor %}
+
+
+{% for file in site.static_files %}
+  {% if file.image %}
+    <img src="{{file.path}}">
+  {% endif %}
+{% endfor %}
+
+
+{% assign image_files = site.static_files | where: "image", true %}
+{% for myimage in image_files %}
+{{ myimage.path }}
+{% endfor %}
